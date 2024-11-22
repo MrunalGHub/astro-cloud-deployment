@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
-
+from airflow.utils.dates import timedelta
 default_args = {
     'owner': 'airflow',
     'retries': 1,
