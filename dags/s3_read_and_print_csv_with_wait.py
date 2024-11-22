@@ -30,7 +30,7 @@ OBJECT_KEY = 'awsdata/user.csv'
 # Function to read the CSV from S3 and print its values
 def read_and_print_csv_from_s3():
     # Use S3Hook to interact with S3
-    s3_hook = S3Hook(aws_conn_id='aws_s3') # Use your AWS connection ID
+    s3_hook = S3Hook(aws_conn_id='Bofa_AWS_astro') # Use your AWS connection ID
 
     # Fetch the file from S3 as a byte stream
     file_obj = s3_hook.get_key(key=OBJECT_KEY, bucket_name=BUCKET_NAME)
@@ -49,7 +49,7 @@ wait_for_file = S3KeySensor(
     task_id='wait_for_s3_file',
     bucket_name=BUCKET_NAME,
     bucket_key=OBJECT_KEY,
-    aws_conn_id='aws_s3', # Use your AWS connection ID
+    aws_conn_id='Bofa_AWS_astro', # Use your AWS connection ID
 
     poke_interval=60, # How often to check the S3 bucket (in seconds)
     timeout=600, # How long to wait before giving up (in seconds)
